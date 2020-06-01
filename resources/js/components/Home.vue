@@ -12,7 +12,7 @@
                        <div class="field">
                            <label class="label">Nhập tiền ăn</label>
                            <div class="control">
-                               <input class="input" :class="{'is-danger ':!$v.total_db.required ,' is-success':$v.total_db.required }" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  placeholder="Nhập tiền ăn VD:50.000 VNĐ" v-model="total_db">
+                               <currency-input class="input" :class="{'is-danger ':!$v.total_db.required ,' is-success':$v.total_db.required }" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  placeholder="Nhập tiền ăn VD:50.000 VNĐ" v-model="total_db"v-currency="{currency: 'VND', locale: 'vn'}" />
                            </div>
                            <div class="text-danger" v-if="!$v.total_db.required" @input="setTotal($event.target.value)">Bạn phải nhập tiền ăn</div>
                         </div>
@@ -124,6 +124,7 @@
     import moment from "moment";
     import EventBus from "../EventBus";
     import { required, minLength, between } from 'vuelidate/lib/validators'
+    import { CurrencyInput } from 'vue-currency-input'
     export default {
         name: "Home",
         data(){
@@ -373,7 +374,7 @@
                 }
             }
         },
-        components:{},
+        components: { CurrencyInput },
 
         created() {
             this.getListMoney();

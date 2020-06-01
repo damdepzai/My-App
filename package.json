@@ -26,6 +26,7 @@
     "dependencies": {
         "bulma": "^0.8.2",
         "moment": "^2.25.3",
+        "vue-currency-input": "^1.18.3",
         "vue-router": "^3.1.6",
         "vuelidate": "^0.7.5"
     }
